@@ -1,0 +1,25 @@
+Create EC2 instance
+sudo yum install docker - installing docker
+docker --version  - Verifyng docker installed or not
+sudo systemctl enable docker  - Enabling docker
+sudo systemctl start docker  - Starting Docker
+sudo docker pull nginx  - Pulling images from docker hub
+sudo docker images  - Show images
+sudo docker run -d --name nginx-continer -p 80:80 nginx - Creating container from img
+sudo docker ps  - to list container
+sudo docker exec -it nginx-continer /bin/bash  - to loging to container
+sudo yum install git
+sudo git clone https://github.com/jeejeshrv/maven.git
+vi index.html
+sudo docker cp index.html 0cb21fac6c2c:/   - Copy index.html to container from Ec2
+sudo docker exec -it nginx-continer /bin/bash -  to loging to container
+vi Dockerfile   - Creating docker file to create new customised image
+sudo docker build -t jeej-nginx .  - To run the dockerfile to build image
+sudo docker login -u jeejeshrv  - Loginng to docker hub
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo docker tag jeej-nginx jeejeshrv/jeej-nginx - taging new image
+sudo docker push jeejeshrv/jeej-nginx   - To push the new image to Docker hub
+sudo docker stop 0cb21fac6c2c  - To stop the container
+sudo docker rm 0cb21fac6c2c  - To remove the running container
+sudo docker ps -a  - To list container
